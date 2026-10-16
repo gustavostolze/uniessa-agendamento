@@ -1,0 +1,16 @@
+# Compilados e build
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/resources/architecture/archetype-resources/**
+/target/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Logs e arquivos temporários
+*.log
+.factorypath
