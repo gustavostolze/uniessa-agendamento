@@ -69,3 +69,4 @@ A aplicação iniciará por padrão no endereço: **`http://localhost:8080`**
 ## 🔍 Endpoints Iniciais para Teste
 *   **Verificação de Inicialização:** `GET http://localhost:8080/teste`
 *   **Console do Banco de Dados H2:** `http://localhost:8080/h2-console` *(Acesso em memória para validação das tabelas)*
+*   <img width="713" height="790" alt="image" src="https://github.com/user-attachments/assets/049a3d20-96b6-4583-b21a-427409088d40" />
