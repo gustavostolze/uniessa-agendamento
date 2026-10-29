@@ -1,25 +1,33 @@
 package com.uniessa.agendamento.model;
 
-import java.sql.Time;
-import java.time.LocalDate;
-import java.util.ArrayList;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
-
+@Entity
+@Table(name = "profissional")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Profissional {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+
     private String especialidade;
+
     private String telefone;
 
-    public void cadastrar(Service service){
-
-    }
-    public void criarAgendamento(Cliente cliente, LocalDate date, Time hora, Service service){}
-
-    public List listarAgendamentos(LocalDate data){return new ArrayList<>();}
-    public void editarAgendamento(){};
-    public void excluirAgendamento(){};
-
-
+    // Galera... O mappedBy="profissional" diz ao JPA: "A chave estrangeira já tá configurada
+    // lá na classe Servico no atributo 'profissional'. Não precisa criar tabela extra. Relação bidirecional"
+    @OneToMany(mappedBy = "profissional")
+    private List<Servico> servicos;
 }
