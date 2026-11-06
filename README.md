@@ -2,6 +2,12 @@
 
 O **Slotly** é um sistema simplificado de agendamentos no modelo SaaS (Software as a Service) projetado para resolver problemas de gestão de horários de pequenos negócios e profissionais independentes.
 
+## Integrantes do grupo
+- Gustavo Stolze de Andrade
+- Erick Henrique Borges Moura
+- Lucas Nunes Lino
+- Felipe Carlos Santos
+
 ## 📝 O Problema & Público-Alvo
 Pequenos prestadores de serviços (como barbeiros, manicures, mecânicos ou personal trainers) perdem muito tempo gerenciando marcações manualmente por mensagens, lidando frequentemente com conflitos de horários e esquecimentos por parte dos clientes.
 
