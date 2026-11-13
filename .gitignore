@@ -1,16 +1,43 @@
-# Compilados e build
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/resources/architecture/archetype-resources/**
-/target/
+# Java / Maven
+**/target/
 *.class
+.factorypath
 
-# IntelliJ IDEA
+# Dependências e builds do frontend
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/coverage/
+*.tsbuildinfo
+
+# Configurações locais e variáveis de ambiente
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Logs e arquivos temporários
+logs/
+*.log
+*.tmp
+*.swp
+*.swo
+
+# IDEs e editores
 .idea/
 *.iws
 *.iml
 *.ipr
+.classpath
+.project
+.settings/
+.vscode/*
+!.vscode/extensions.json
 
-# Logs e arquivos temporários
-*.log
-.factorypath
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Preserva o Maven Wrapper, caso incluído
+!**/.mvn/wrapper/maven-wrapper.jar

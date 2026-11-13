@@ -1,6 +1,6 @@
-# 🚀 Slotly - SaaS de Agendamentos Simples
+# Slotly — Sistema de agendamentos
 
-O **Slotly** é um sistema simplificado de agendamentos no modelo SaaS (Software as a Service) projetado para resolver problemas de gestão de horários de pequenos negócios e profissionais independentes.
+Projeto acadêmico de uma aplicação de agendamentos para pequenos negócios e profissionais independentes, como barbeiros, manicures, mecânicos e personal trainers. A proposta é centralizar a agenda e reduzir o trabalho de gerenciar horários por mensagens.
 
 ## Integrantes do grupo
 - Gustavo Stolze de Andrade
@@ -11,68 +11,65 @@ O **Slotly** é um sistema simplificado de agendamentos no modelo SaaS (Software
 ## 📝 O Problema & Público-Alvo
 Pequenos prestadores de serviços (como barbeiros, manicures, mecânicos ou personal trainers) perdem muito tempo gerenciando marcações manualmente por mensagens, lidando frequentemente com conflitos de horários e esquecimentos por parte dos clientes.
 
-O foco do projeto é oferecer a esses profissionais independentes uma agenda digital ágil, intuitiva e centralizada.
+```text
+uniessa-agendamento/
+├── client/     # Interface web com React, TypeScript e Vite
+├── back/       # API REST com Java, Spring Boot e Spring Data JPA
+├── .gitignore
+└── README.md
+```
 
-## ⚙️ Requisitos Funcionais
-*   **RF1 (Cadastro):** O sistema deve permitir que o profissional cadastre um novo agendamento, informando o nome do cliente, data, horário e serviço.
-*   **RF2 (Consulta):** O sistema deve permitir consultar (listar) todos os agendamentos marcados para um determinado dia *(Endpoint GET obrigatório)*.
-*   **RF3 (Cancelamento/Status):** O sistema deve permitir que o profissional cancele ou altere o estado de um agendamento (ex: de "Pendente" para "Concluído").
+A documentação de instalação, configuração e desenvolvimento de cada parte está em:
 
-## 🛠️ Tecnologias Utilizadas
+- [Frontend](client/README.md)
+- [Backend](back/README.md)
 
-### Backend
-*   **Java 21**
-*   **Spring Boot** (Web MVC & Data JPA)
-*   **Banco de Dados H2** (Em memória para desenvolvimento)
-*   **Maven** (Gerenciador de dependências)
+## Estado atual
 
-### Frontend
-*   **A ser decidido
+Interface integrada para criação e listagem/recarga em `/agendamento`. Edição de registros não está implementada. Consulte a documentação de integração e ambientes em `docs/`.
 
----
+## Tecnologias
 
-## 📋 Requisitos para Execução
+| Parte | Tecnologias |
+| --- | --- |
+| Frontend | React, TypeScript, Vite e ESLint |
+| Backend | Java 21, Spring Boot, Spring Data JPA e Maven |
+| Banco de dados | H2 em memória no perfil padrão `dev`; PostgreSQL em `homolog` e `prod` |
 
-Antes de começar, certifique-se de ter instalado em sua máquina:
-1. **Java Development Kit (JDK) 21** ou superior.
-2. **Maven 3.x** (opcional, caso prefira rodar via terminal externo, ou use o wrapper incluso `./mvnw`).
-3. Uma IDE de sua escolha (recomendado **IntelliJ IDEA**).
+## Execução local
 
----
+Requisitos: JDK 21, Maven 3.6.3 ou superior, Node.js compatível com o Vite instalado e npm. Para homologação e produção, também é necessário PostgreSQL. Consulte os READMEs específicos para os detalhes e limitações atuais de configuração.
 
-## 🚀 Como Rodar o Projeto
+Clone o repositório:
 
-### 1. Clonar o Repositório
 ```bash
 git clone https://github.com/gustavostolze/uniessa-agendamento.git
+cd uniessa-agendamento
 ```
 
-### 2. Executar pelo IntelliJ (Método Recomendado)
-1. Abra o IntelliJ IDEA.
-2. Vá em `File > Open` e selecione a pasta raiz do projeto.
-3. Aguarde o download das dependências do Maven terminar.
-4. Localize o arquivo `AgendamentoApplication.java` dentro de `src/main/java/com/uniessa/agendamento/`.
-5. Clique no botão **Run (▶️)** ou use o atalho `Ctrl + Shift + F10`.
+Em um terminal, configure o banco conforme o [README do backend](back/README.md) e execute:
 
-### 3. Executar via Linha de Comando (Terminal)
-Caso prefira rodar diretamente pelo terminal na raiz do projeto, execute o wrapper do Maven:
-
-**No Windows:**
 ```bash
-mvnw.cmd spring-boot:run
-```
-
-**No Linux/macOS:**
-```bash
-chmod +x mvnw
+cd back
 ./mvnw spring-boot:run
 ```
 
-A aplicação iniciará por padrão no endereço: **`http://localhost:8080`**
+Em outro terminal, a partir da raiz:
 
----
+```bash
+cd client
+npm ci
+cp .env.development.example .env.development.local
+npm run dev
+```
 
-## 🔍 Endpoints Iniciais para Teste
-*   **Verificação de Inicialização:** `GET http://localhost:8080/teste`
-*   **Console do Banco de Dados H2:** `http://localhost:8080/h2-console` *(Acesso em memória para validação das tabelas)*
-*   <img width="713" height="790" alt="image" src="https://github.com/user-attachments/assets/049a3d20-96b6-4583-b21a-427409088d40" />
+A API utiliza `http://localhost:8080`. O Vite normalmente disponibiliza o frontend em `http://localhost:5173`; confira a URL exibida no terminal. Os dois processos são executados separadamente.
+
+## Integrantes
+
+- Gustavo Stolze de Andrade
+- Erick Henrique Borges Moura
+- Lucas Nunes Lino
+- Felipe Carlos Santos
+
+Documentação: [Integração](docs/integracao.md) · [Ambientes e CORS](docs/ambientes-e-cors.md).

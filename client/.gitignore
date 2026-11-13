@@ -1,0 +1,8 @@
+# As regras compartilhadas de dependências, builds, logs e ambiente
+# ficam no .gitignore da raiz.
+
+# Arquivos locais de ferramentas do Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
