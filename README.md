@@ -19,13 +19,7 @@ A documentação de instalação, configuração e desenvolvimento de cada parte
 
 ## Estado atual
 
-A API possui rotas para verificar a inicialização, listar todos os agendamentos e criar um agendamento. O frontend contém a estrutura inicial em React e uma tela de apresentação; a integração com a API ainda está pendente.
-
-Os requisitos previstos para a aplicação são:
-
-- **RF1 — Cadastro:** registrar agendamentos com cliente, data, horário e serviço.
-- **RF2 — Consulta:** consultar os agendamentos de um dia. A listagem atual da API ainda não filtra por data.
-- **RF3 — Status:** cancelar ou atualizar o estado de um agendamento. As rotas de atualização ainda não foram implementadas.
+Interface integrada para criação e listagem/recarga em `/agendamento`. Edição de registros não está implementada. Consulte a documentação de integração e ambientes em `docs/`.
 
 ## Tecnologias
 
@@ -33,11 +27,11 @@ Os requisitos previstos para a aplicação são:
 | --- | --- |
 | Frontend | React, TypeScript, Vite e ESLint |
 | Backend | Java 21, Spring Boot, Spring Data JPA e Maven |
-| Banco de dados | PostgreSQL no perfil padrão; configuração H2 no perfil `dev` |
+| Banco de dados | H2 em memória no perfil padrão `dev`; PostgreSQL em `homolog` e `prod` |
 
 ## Execução local
 
-Requisitos: JDK 21, Maven 3.6.3 ou superior, Node.js compatível com o Vite instalado e npm. Para usar o perfil padrão do backend, também é necessário PostgreSQL. Consulte os READMEs específicos para os detalhes e limitações atuais de configuração.
+Requisitos: JDK 21, Maven 3.6.3 ou superior, Node.js compatível com o Vite instalado e npm. Para homologação e produção, também é necessário PostgreSQL. Consulte os READMEs específicos para os detalhes e limitações atuais de configuração.
 
 Clone o repositório:
 
@@ -50,7 +44,7 @@ Em um terminal, configure o banco conforme o [README do backend](back/README.md)
 
 ```bash
 cd back
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Em outro terminal, a partir da raiz:
@@ -58,6 +52,7 @@ Em outro terminal, a partir da raiz:
 ```bash
 cd client
 npm ci
+cp .env.development.example .env.development.local
 npm run dev
 ```
 
@@ -69,3 +64,5 @@ A API utiliza `http://localhost:8080`. O Vite normalmente disponibiliza o fronte
 - Erick Henrique Borges Moura
 - Lucas Nunes Lino
 - Felipe Carlos Santos
+
+Documentação: [Integração](docs/integracao.md) · [Ambientes e CORS](docs/ambientes-e-cors.md).

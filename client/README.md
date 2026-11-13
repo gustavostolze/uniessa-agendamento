@@ -1,6 +1,6 @@
 # Slotly — Frontend
 
-Interface web do sistema de agendamentos, desenvolvida com React, TypeScript e Vite. Atualmente, a aplicação exibe uma tela inicial com o título do sistema; as telas de agendamento e a integração com o backend ainda serão desenvolvidas.
+Interface web do sistema de agendamentos, desenvolvida com React, TypeScript e Vite. A aplicação permite criar e listar/recarregar agendamentos pela API.
 
 [Visão geral do projeto](../README.md) · [Documentação do backend](../back/README.md)
 
@@ -58,6 +58,13 @@ client/
 
 ## Integração com a API
 
-O backend utiliza `http://localhost:8080`. Ainda não há chamadas HTTP, URL de API configurada por variável de ambiente ou proxy no `vite.config.ts`.
+O perfil local usa `http://localhost:8080`. Antes de executar, copie `.env.development.example` para `.env.development.local`. A camada `src/services/AgendamentoService.ts` chama GET/POST em `/agendamento` usando Fetch. O backend permite a origem local via CORS; não é usado proxy Vite.
 
-Ao implementar a integração, será necessário configurar um proxy de desenvolvimento no Vite ou permitir a origem do frontend no backend via CORS. Arquivos `.env` locais são ignorados pelo Git; variáveis expostas ao navegador nunca devem conter senhas ou outros segredos.
+| Comando | Ambiente |
+| --- | --- |
+| `npm run build:homolog` | `.env.homolog.local` com URL da API de homologação |
+| `npm run build:prod` | `.env.production.local` com URL da API de produção |
+
+Copie os arquivos `.example` correspondentes, substitua os domínios e gere o build. Variáveis `VITE_*` são públicas e incorporadas durante o build.
+
+Documentação: [Integração](../docs/integracao.md) · [Ambientes e CORS](../docs/ambientes-e-cors.md).
